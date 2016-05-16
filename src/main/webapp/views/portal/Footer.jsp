@@ -15,5 +15,5 @@
 			</div>
 		</a>
 	</div>
-	<div id="footer-copyright">© Copyright Synapse - www.synapsegaming.fr - Tous droits réservés - Version 1.0.4</div>
+	<div id="footer-copyright">© Copyright Synapse - www.synapsegaming.fr - Tous droits réservés - Version 1.0.4 - <a href="<c:url value="/contact"/>">Contact</a></div>
 </div>

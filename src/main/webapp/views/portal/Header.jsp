@@ -8,10 +8,10 @@
 	<div id="header-membership">
 		<c:if test="${ empty user || user.mail == null}">
 			<div id="header-membership-subscribe">
-				<a href="/synapse/user/subscribe" id="header-subscribe" class="in">Inscription</a>
+				<a href="<c:url value="/user/subscribe"/>" id="header-subscribe" class="in">Inscription</a>
 			</div>
 			<div id="header-membership-signin">
-				<a href="/synapse/user/signin" id="header-register" class="in">Connexion</a>
+				<a href="<c:url value="/user/signin"/>" id="header-register" class="in">Connexion</a>
 			</div>
 		</c:if>
 		<c:if test="${ !empty user && user.mail != null }">

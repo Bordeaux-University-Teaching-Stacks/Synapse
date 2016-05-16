@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -14,6 +15,7 @@ import fr.synapsegaming.media.service.ArticleService;
 import fr.synapsegaming.media.service.VideoService;
 import fr.synapsegaming.raid.entity.Patch;
 import fr.synapsegaming.raid.service.PatchService;
+import fr.synapsegaming.social.service.MailService;
 import fr.synapsegaming.ui.service.ResourceService;
 import fr.synapsegaming.user.entity.User;
 import fr.synapsegaming.user.service.ClazzService;
@@ -45,6 +47,9 @@ public class HomeController extends AbstractController {
 
     @Autowired
     private ClazzService clazzService;
+    
+    @Autowired
+    private MailService mailService;
 
 
     /**
@@ -95,4 +100,27 @@ public class HomeController extends AbstractController {
         return page;
     }
     
+    /**
+     * Route to the Contact Page
+     * 
+     * @return Contact Page
+     */
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public ModelAndView contactRoute() {
+        page = new ModelAndView("Contact");
+        return page;
+    }
+    
+    /**
+     * Route to send a contact email
+     * 
+     * @return Contact Page
+     */
+    @RequestMapping(value = "/contact", method = RequestMethod.POST)
+    public ModelAndView contactMail(@ModelAttribute("email") String email, @ModelAttribute("subject") String subject, @ModelAttribute("body") String body) {
+        page = new ModelAndView("Contact");
+        mailService.sendMail("meidi.airouche@gmail.com", "From : " + email + " - Subject : " + subject, body);
+        this.info("Votre email a bien été envoyé. Vous obtiendrez une réponse sous 12 heures.");
+        return page;
+    }
 }

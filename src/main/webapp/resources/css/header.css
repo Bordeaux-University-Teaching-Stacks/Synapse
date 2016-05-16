@@ -63,3 +63,7 @@
 .in {
 	float:left;
 }
+
+.sell a:hover {
+	text-decoration:underlined;
+}
