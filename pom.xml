@@ -12,6 +12,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jacoco.version>0.7.4.201502262128</jacoco.version>
 	</properties>
+	
+	<scm>
+		<connection>scm:git:https://github.com/mairouche/Synapse.git</connection>
+		<developerConnection>scm:git:git@github.com:mairouche/Synapse.git</developerConnection>
+		<url>https://github.com/mairouche/Synapse</url>
+		<tag>HEAD</tag>
+	</scm>
 
 	<build>
 		<plugins>
